@@ -1,12 +1,13 @@
-n=int(input())
-count=0
-while (n!=0):
-	b=n%10
-	count+=1
-	n=n//10
-	if (count>3):
-		break
-if (count>3):
-	print ("More than 3 digits")
-else:
-	print (count)
+a=[1,2,3,4,5]
+n=len(a)
+j=n
+item=10
+index=3
+n=n+1
+while(j>=index):
+	a[j]=a[j+1]
+	j=j-1
+
+a[index]=item
+
+print(a)
