@@ -9,6 +9,8 @@ def mouseController():
     mouse = Controller()
     mouse.position=(100,200)
 
+mouseController()
+
 def keyboardController():
     keyboard = Controller()
     keyboard.type('hello')
