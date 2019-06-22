@@ -7,5 +7,16 @@ class QuoetSpider(scrapy.Spider):
         ]
 
         def parse(self,response):
-            title = response.css('title::text').extract()
-            yield {'titletext':title}
+            all_div_class = response.css('div.quote')
+
+            for quotes in all_div_class:
+
+                title = quotes.css('span.text::text').extract()
+                author = quotes.css('.author::text').extract()
+                tags = quotes.css('.tag::text').extract()
+
+                yield{
+                    'title':title,
+                    'author':author,
+                    'tags':tags
+                    }
