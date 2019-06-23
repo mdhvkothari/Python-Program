@@ -1,4 +1,6 @@
 import scrapy
+from ..items import AmazonScrapItem
+
 
 class QuoetSpider(scrapy.Spider):
         name ='quotes'
@@ -7,6 +9,9 @@ class QuoetSpider(scrapy.Spider):
         ]
 
         def parse(self,response):
+            item = AmazonScrapItem()
+
+
             all_div_class = response.css('div.quote')
 
             for quotes in all_div_class:
@@ -15,8 +20,8 @@ class QuoetSpider(scrapy.Spider):
                 author = quotes.css('.author::text').extract()
                 tags = quotes.css('.tag::text').extract()
 
-                yield{
-                    'title':title,
-                    'author':author,
-                    'tags':tags
-                    }
+                item['title'] = title
+                item['author'] = author
+                item['tags'] = tags
+
+                yield item
