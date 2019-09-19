@@ -1,25 +1,24 @@
 T = int(input())
-for i in range(T):
-    N= int(input())
-    arr=[]
-    n1 = 0
-    n2 = 1
-    count = 0
+for _ in range(T):
+    arr = list(map(int, input().split()))
+    age = arr[0:3]
+    money = arr[3:]
+    if(age[0]==age[1] and age[0]==age[2]):
+        if(money[0]==money[1] and  money[0]==money[2]):
+            print("FAIR")
+        else:
+            print("NOT FAIR")
 
-    while count < N:
-        arr.append(n1)
-        nth = n1 + n2
-        n1 = n2
-        n2 = nth
-        count += 1
-
-
-    updateArr =[]
-    if(N!=0):
-        while(len(updateArr)!=1):
-            updateArr =[]
-            for i in range(0,len(arr)):
-                if(i%2!=0):
-                    updateArr.append(arr[i]%10);
-            arr = updateArr
-        print(arr[0])
+    for i in range(len(age)-1,0,-1):
+        swap  = False
+        for j in range(i):
+            if (age[j]>age[j+1]):
+                swap = True
+                age[j],age[j+1] = age[j+1],age[j]
+                money[j],money[j+1] = money[j+1],money[j]
+        if(swap==False):
+            break
+    if(money[0]<money[1] and money[0]<money[2] and money[1]<money[2] ):
+        print("FAIR")
+    else:
+        print("NOT FAIR")
