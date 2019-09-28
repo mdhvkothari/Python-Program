@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
-
-
-
-
 {% block content %}
-<h1>about</h1>
+<br>
+{% for i in data_article %}
+<div class="card mb-12" style="max-width: 1500px;">
+<div class="row no-gutters">
+  <div class="col-md-3">
+    <img src="{{ i.urlToImage }}" class="card-img" alt="Image">
+  </div>
+  <div class="col-md-8">
+    <div class="card-body">
+      <h5 class="card-title">{{ i.title }}</h5>
+      <p class="card-text">{{ i.description }}</p>
+      <p class="card-text"><small class="text-muted">{{ i.publishedAt }}</small></p>
+      <a href="{{ i.url }}" class="btn btn-primary" target="_blank">Read full News</a>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+{% endfor %}
+<br>
+<center><h5>Your are Updated!!!</h5></center>
+<hr>
 {% endblock %}
