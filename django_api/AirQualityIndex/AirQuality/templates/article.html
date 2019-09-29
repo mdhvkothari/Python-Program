@@ -11,6 +11,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ i.title }}</h5>
       <p class="card-text">{{ i.description }}</p>
+      <p class="card-text">Author: {{ i.author }}</p>
       <p class="card-text"><small class="text-muted">{{ i.publishedAt }}</small></p>
       <a href="{{ i.url }}" class="btn btn-primary" target="_blank">Read full News</a>
     </div>
@@ -20,6 +21,7 @@
 <br>
 {% endfor %}
 <br>
-<center><h5>Your are Updated!!!</h5></center>
-<hr>
+<center><h5 style="color:white">You're Up to Date!!!</h5></center>
+<hr style="background-color:white">
+
 {% endblock %}
