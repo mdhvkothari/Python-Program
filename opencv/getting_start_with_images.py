@@ -8,5 +8,6 @@ print(img)
 # how to see the image
 # 'image' is the window name
 cv2.imshow('image',img)
+#wait for any key to press
 cv2.waitKey(0)
 cv2.destroyAllWindows()

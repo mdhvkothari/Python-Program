@@ -1,6 +1,7 @@
 import cv2
 
 #0 is for the number of camera
+#0 is first web cam
 cap = cv2.VideoCapture(0)
 
 
@@ -15,7 +16,7 @@ while(cap.isOpened()):
         # for geting frame of the video
         print(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         print(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        
+
         out.write(frame)
 
         # if we want to video in black and white
@@ -24,12 +25,12 @@ while(cap.isOpened()):
         cv2.imshow('video',frame)
 
 
-      # 0xFF is used for 64 bit device and ord is used to press the keywoard button if q is pressed then it will quit window 
+      # 0xFF is used for 64 bit device and ord is used to press the keywoard button if q is pressed then it will quit window
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     else:
         break
-    
+
 cap.release()
 out.release()
 cv2.destroyAllWindows()
