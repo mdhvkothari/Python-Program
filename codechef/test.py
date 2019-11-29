@@ -1,16 +1,16 @@
-l=list(map(int,input().split()))
-N=l[0]
-K=l[1]
-element=list(map(int,input().split()))
+void merge(int arr[],int l, int m, int r){
+    int i,j,k
+    int n1 = m-l+1
+    int n2 = r-m
 
-count = 0
-for i in range(N):
-    for j in range(i,N):
-        if i!=j:
-            if (abs(element[i]-element[j]>=K)):
-                count = count+1
-            if(abs(element[j]-element[i]>=K)):
-                count = count+1
-        
+    int L[n1],R[n2]
 
-print(count)
+    for (i=0;i<n1;i++)
+        L[i] = arr[l+i]
+    
+    for(j=0j;<n2;j++):
+        R[j] = arr[m+1+j]
+
+    
+
+}
