@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  body{
+    font-family: 'Baloo Bhai';
+  }
+  #heading{
+
+    padding-left: 15px;
+    padding-top: 20px;
+    padding-bottom: 150px;
+  }
+
+  #jumb{
+    padding-top: 80px;
+    color: white;
+    background-color: black;
+    padding-bottom: 100px;
+  }
+
+
+  hr.style-three {
+  height: 30px;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+  width: 400px;
+  }
+  hr.style-three:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: yellow;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+  }
+  table {
+  border:0px;
+  border-collapse:collapse;
+  border-spacing:0px;
+  }
+
+table{
+  font-family: 'Righteous'
+}
+
+#excellence{
+  padding-left:50px;
+}
+#goods{
+  padding-left:50px;
+}
+#door{
+  padding-left:50px;
+}
+
+#image{
+  height:200px;
+  width:300px;
+}
+
+#footer{
+  padding-top:400px;
+}
+
+#cr{
+  font-family: 'Righteous'
+
+}
+</style>
+
+
+<h1 id="heading">ANAND GENERAL STORE</h1>
+<div class="jumbotron" id="jumb">
+    <center>
+        <h1>Who are we??</h1>
+        <hr class="style-three">
+        <h4>Click the button below to start exploring us !!</h4>
+        <br>
+        <br>
+        <button type="button" class="btn btn-warning">START EXPLORING</button>
+    </center>
+</div>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" id="excellence">
+      <table>
+        <thead>
+          <td><i class='fab fa-angellist' style='font-size:48px'></i></td>
+        </thead>
+        <tr>
+          <td><h3>Excellence</h3></td>
+        </tr>
+        <tr>
+          <td>
+            <h4>More than 50 years of experience in the market with excellence.</h4>
+          </td>
+        </tr>
+      </table>
+      <hr>
+    </div>
+    <div class="col-sm-4" id="goods">
+      <table>
+        <thead>
+          <td><i class='fas fa-check-double' style='font-size:36px'></i></td>
+        </thead>
+        <tr>
+          <td><h3>Goods</h3></td>
+        </tr>
+        <tr>
+          <td>
+            <h4>
+              Providing goods of valuable companies.
+            </h4>
+          </td>
+        </tr>
+      </table>
+      <hr>
+    </div>
+    <div class="col-sm-4" id="door">
+      <table>
+        <thead>
+          <td><i class='fas fa-truck' style='font-size:36px'></i></td>
+        </thead>
+        <tr>
+          <td><h3>Service</h3></td>
+        </tr>
+        <tr>
+          <td><h4>Our responsibility to reach goods at your door step as soon as possible.</h4></td>
+        </tr>
+      </table>
+      <hr>
+   </div>
+  </div>
+</div>
+
+
+<footer id="footer">
+<div class="container">
+  <div class="row">
+    <div class="col-sm" id="excellence">
+      <img src="{% static 'main/s.png' %}" alt="logo" id="image">
+    </div>
+    <div class="col-sm"  id="goods">
+      <table >
+        <tr>
+          <th><i class="fa fa-map-marker" style="font-size:36px"></i></th>
+          <td>Anand General Store,
+            <br>Main Market Jewar(G.B Nagar)
+          </td>
+        </tr>
+        <tr>
+          <td><i class="fa fa-phone"  style="font-size:36px"></i></td>
+          <td>+91 9412640728<br>
+              +91 9368429338
+          </td>
+        </tr>
+        <tr>
+          <td><i class='far fa-envelope' style='font-size:36px'></i></td>
+          <td>anandgeneralstore1@gmail.com</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm" id="door">
+      <h4>Wanna start new business?</h4>
+      <h5>Contact to us </h5>
+    </div>
+  </div>
+</div>
+  <div class="footer-copyright text-center py-3" id="cr">© 2019 Copyright:
+    <a href=""> anandgeneralstore.com</a>
+  </div>
+</footer>
+<!-- Footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
