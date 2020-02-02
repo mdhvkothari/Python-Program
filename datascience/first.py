@@ -1,5 +1,6 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib as plt
+from matplotlib import pyplot
 import numpy as np
 
 
@@ -79,7 +80,7 @@ df['city-L/100km'] = 235/df["city-mpg"]
 df["highway-mpg"] = 235/df["highway-mpg"]
 
 # rename column name from "highway-mpg" to "highway-L/100km"
-df.rename(columns={'"highway-mpg"':'highway-L/100km'}, inplace=True)
+df.rename(columns={'highway-mpg':'highway-L/100km'}, inplace=True)
 
 #now its time to normalized our data
 #normalized means to convert data into similar range
@@ -89,3 +90,50 @@ df['width'] = df['width']/df['width'].max()
 df['height'] = df['height']/df['height'].max()
 # show the scaled columns
 print(df[["length","width","height"]].head())
+
+
+df['horsepower'] = df['horsepower'].astype(int,copy=True)
+
+plt.pyplot.hist(df['horsepower'])
+plt.pyplot.xlabel("horsepower")
+plt.pyplot.ylabel("count")
+plt.pyplot.title("horsepower bins")
+# plt.pyplot.show()
+#bins
+bins = np.linspace(min(df['horsepower']),max(df['horsepower']),4)
+group_names = ['Low','Medium','High']
+
+df['horsepower-binned'] = pd.cut(df['horsepower'],bins,labels=group_names,include_lowest=True)
+print(df[['horsepower','horsepower-binned']].head(20))
+
+plt.pyplot.bar(group_names,df['horsepower-binned'].value_counts())
+plt.pyplot.xlabel("horsepower")
+plt.pyplot.ylabel("count")
+plt.pyplot.title("horsepower bins")
+# plt.pyplot.show()
+
+
+print(df.columns)
+
+#getting dummies vaiables
+dummy_variables_1 = pd.get_dummies(df['fuel-type'])
+print(dummy_variables_1.head())
+
+dummy_variables_1.rename(columns={'diesel':'fuel-type-diesel','gas':'fuel-type-gas'},inplace=True)
+print(dummy_variables_1.head())
+
+#now we have to merge it into df
+df = pd.concat([df,dummy_variables_1],axis=1)
+df.drop("fuel-type",axis=1,inplace=True)
+print(df.head())
+
+dummy_variables_2 = pd.get_dummies(df['aspiration'])
+dummy_variables_2.rename(columns={'std':'aspiration-std','turbo':'aspiration-turbo'},inplace=True)
+print(dummy_variables_2.head())
+
+df = pd.concat([df,dummy_variables_2],axis=1)
+df.drop('aspiration',axis=1,inplace=True)
+print(df.head())
+
+#to save df
+df.to_csv('clean_df.csv')
