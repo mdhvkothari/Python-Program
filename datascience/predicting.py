@@ -63,3 +63,6 @@ plt.show()
 # - If the points in a residual plot are randomly spread out around the x-axis, then a linear model is appropriate for the data. Why is that? Randomly spread out residuals means that the variance is constant, and thus the linear model is a good fit for this data.
 sns.residplot(df['highway-L/100km'], df['price'])
 plt.show()
+
+sns.residplot(df['peak-rpm'], df['price'])
+plt.show()
