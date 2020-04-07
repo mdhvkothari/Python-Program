@@ -48,7 +48,14 @@ class LinkedList:
             self.head = cur_node.next
             cur_node = None
             return
-            
+
+    def length_list(self):
+        len =0
+        curr_node = self.head
+        while curr_node:
+            len += 1
+            curr_node = curr_node.next
+        return len          
         
 llist = LinkedList()
 llist.append(1)
@@ -56,6 +63,7 @@ llist.append(2)
 llist.append(3)
 # llist.append_at_first(5)
 llist.insert_after_node(2,20)
+# llist.print_list()
+llist.delete(1)
 llist.print_list()
-# llist.delete(1)
-llist.print_list()
+llist.length_list()
