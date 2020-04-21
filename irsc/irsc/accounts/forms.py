@@ -44,7 +44,6 @@ class UserRegisterForm(forms.ModelForm):
         )
     def clean(self):
         first_name = self.cleaned_data['first_name']
-        print(first_name)
         username = self.cleaned_data['username']
         email = self.cleaned_data['email']
         password = self.cleaned_data['password']

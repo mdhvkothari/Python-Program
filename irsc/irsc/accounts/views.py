@@ -46,8 +46,6 @@ def register(request):
             print(form.cleaned_data.get("first_name"))
             auth_login(request, user)
             return redirect('/accounts/user/')
-        else:
-            return HttpResponse("lodalussan")
     else:
         form = UserRegisterForm()
     return render(request, 'accounts/register.html', {'form': form})
