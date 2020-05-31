@@ -6,7 +6,7 @@ class Node:
 
     def insert(self,data):
         if self.data:
-            if self.data >data:
+            if self.data>data:
                 if self.left is None:
                     self.left = Node(data)
                 else:
@@ -19,15 +19,18 @@ class Node:
         else:
             self.data = data
 
-    def PrintTree(self):
+    def print(self):
         if self.left:
-            self.left.PrintTree()
-        print( self.data),
+            self.left.print()
+        print(self.data)
         if self.right:
-            self.right.PrintTree()
+            self.right.print()
+
+
+
 btree = Node(12)
 btree.insert(6)
 btree.insert(14)
 btree.insert(3)
-btree.PrintTree()
+btree.print()
         
