@@ -1,3 +1,22 @@
+class Queue:
+    def __init__(self):
+        self.item = []
+    def enqeue(self,items):
+        self.item.insert(0,items)
+    def deqeue(self):
+        if not self.is_empty():
+            return self.item.pop()
+    def is_empty(self):
+        return len(self.item) == 0
+    def peek(self):
+        if not self.is_empty():
+            return self.item[-1].value
+    def __len__(self):
+        return self.size()
+    def size(self):
+        return len(self.item)
+
+
 class Node(object):
     def __init__(self, value):
         self.value = value
@@ -43,6 +62,20 @@ class BinaryTree(object):
             traversal = self.postorder_print(start.left, traversal)
             traversal = self.postorder_print(start.right, traversal)
             traversal += (str(start.value) + "-")
+        return traversal
+    def levelOrderTraversal(self,start):
+        if start is None:
+            return
+        queue = Queue()
+        queue.enqeue(start)
+        traversal = ""
+        while(len(queue)>0):
+            traversal += str(queue.peek()) + "-"
+            node = queue.deqeue()
+            if node.left:
+                queue.enqeue(node.left)
+            if node.right:
+                queue.enqeue(node.right)
         return traversal
 
 # 1-2-4-5-3-6-7-
