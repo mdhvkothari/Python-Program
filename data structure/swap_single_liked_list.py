@@ -64,7 +64,5 @@ class LinkedList:
 llist = LinkedList()
 llist.append(1)
 llist.append(2)
-llist.append(3)
-llist.append(4)
 llist.swap(1,2)
 llist.printList()
