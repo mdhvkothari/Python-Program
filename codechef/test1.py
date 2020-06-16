@@ -1,15 +1,32 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Apr 17 20:57:34 2018
+def find_gcd(x,y):
+     while (y):
+          x,y = y, x%y
+     return x
 
-@author: Madhav
-"""
 
-a=93.675
-d=str(a)
-b=d.split('.')
-f=str(b[1][0])+"."+str(b[1:])
-if int(b[1][1])<5:
-        print(b[0]+"."+b[1][0]+b[1][1])
+N  = int(input())
+if(N!=0 and  N!=1):
+
+     A = list(map(int,input().split()))
+
+
+     num1 = A[0]
+     num2 = A[1]
+
+     gcd = find_gcd(num1,num2)
+
+     for i in range(2,N):
+          gcd = find_gcd(gcd,A[i])
+
+
+
+
+
+     mul = 1
+     for i in range(0,N):
+          mul = mul * A[i]
+
+     fx = mul%(10^9+7)
+     print(pow(fx,gcd))
 else:
-        print(b[0]+"."+b[1][0]+str((int(b[1][1])+1)))
+     print(0)
