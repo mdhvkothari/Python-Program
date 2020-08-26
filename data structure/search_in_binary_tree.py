@@ -1,9 +1,8 @@
 class Node:
     def __init__(self,data):
+        self.data = data
         self.left = None
         self.right = None
-        self.data = data
-
 
     def insert(self,data):
         if self.data:
@@ -19,17 +18,31 @@ class Node:
                     self.right.insert(data)
         else:
             self.data = data
-    
+
+    def find(self,data):
+        if data<self.data:
+            if self.left is None:
+                return "Not found"
+            return self.left.find(data)
+        elif data>self.data:
+            if self.right is None:
+                return "Not found"
+            return self.right.find(data)
+        else:
+            return "Found!!"
+
     def print(self):
-        if self.left :
+        if self.left:
             self.left.print()
         print(self.data)
-        if self.right :
+        if self.right:
             self.right.print()
 
-root = Node(12)
-root.insert(6)
-root.insert(14)
-root.insert(3)
 
-root.print()
+node = Node(10)
+node.insert(5)
+node.insert(50)
+node.insert(30)
+node.print()
+print(node.find(500))
+
