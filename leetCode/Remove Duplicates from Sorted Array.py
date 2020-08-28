@@ -1,10 +1,7 @@
-a= [0,0,1,1,1,2,2,3,3,4]
-i=0
-for j in range(0,len(a)):
-    if a[i] != a[j]:
-        i +=1
-        temp = a[i]
-        a[i] = a[j]
-        a[j] = temp
-    
-print(i+1)
+num =[-1,0,0,0,0,3,3]
+distinct = sorted(list(set(num)))
+print(distinct)
+for i in range(0,len(distinct)):
+    num[i] = distinct[i]
+del num[len(distinct):]
+print(num)
