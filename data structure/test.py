@@ -1,35 +1,46 @@
 class Node:
     def __init__(self,data):
-        self.left = None
-        self.right = None
         self.data = data
+        self.link = None
 
-
-    def insert(self,data):
-        if self.data:
-            if self.data>data:
-                if self.left is None:
-                    self.left = Node(data)
-                else:
-                    self.left.insert(data)
-            elif self.data<data:
-                if self.right is None:
-                    self.right = Node(data)
-                else:
-                    self.right.insert(data)
-        else:
-            self.data = data
+class LinkedList:
+    def __init__(self):
+        self.root = None
     
+    def add(self,data):
+        newNode = Node(data)
+        if self.root == None:
+            self.root = newNode 
+            return
+        cur = self.root
+        while cur.link:
+            cur = cur.link
+        cur.link = newNode
+    def duplicat(self):
+        cur = self.root
+        prev = None
+        d = {}
+        while cur:
+            if cur.data not in d:
+                d[cur.data]  = 1
+                prev = cur
+            else:
+                prev.link = cur.link
+            cur = cur.link
+
+
+
     def print(self):
-        if self.left :
-            self.left.print()
-        print(self.data)
-        if self.right :
-            self.right.print()
+        cur = self.root
+        while cur:
+            print(cur.data)
+            cur= cur.link
 
-root = Node(12)
-root.insert(6)
-root.insert(14)
-root.insert(3)
-
-root.print()
+ll = LinkedList()
+ll.add(20)
+ll.add(30)
+ll.add(30)
+ll.add(40)
+ll.print()
+ll.duplicat()
+ll.print()
