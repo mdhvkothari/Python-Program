@@ -1,21 +1,17 @@
-arr=["S"
-,"SS"
-,"SSE"
-,"SSEC"
-,"SSE"
-,"SS"
-,"S"]
-t = int(input())
-for i in range(0,t):
-    n = int(input())
-    if n<=7:
-        result=[]
-        for j in range(0,len(arr[n-1])):
-            result.append(ord(arr[n-1][j]))
-        print(*result)
-    else:
-        result=[]
-        n = n%7
-        for j in range(0,len(arr[n-1])):
-            result.append(ord(arr[n-1][j]))
-        print(*result)
+n = int(input())
+n = str(n)
+nums=[]
+for i in range(1,len(n)+1):
+    nums.append(n[0:i])
+
+
+flag=0
+for i in range(0,len(nums)):
+    if int(nums[i])%(len(nums)-i) != 0:
+        
+        flag=1
+        break
+if flag == 0:
+    print("Yes")
+else:
+    print("No")
