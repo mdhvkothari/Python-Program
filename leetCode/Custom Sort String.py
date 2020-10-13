@@ -8,3 +8,4 @@ for i in S:
 for i in T:
     if i not in S:
         l.append(i)
+print("".join(l))
