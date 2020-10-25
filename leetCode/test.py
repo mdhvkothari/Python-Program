@@ -1,23 +1,12 @@
-string = "The quick brown fox jumped over the lazy dog"
-arr = string.split()
-for i in range(0,len(arr)):
-    a = "a"*(i+1)
-    if arr[i][0] in "AEIOUaeiou":
-        arr[i] = arr[i]+"ma"+a
-    else:
-        left = arr[i][1:]
-        arr[i] = left+arr[i][0]+"ma"+a
-        
-print(arr)
+S = "ab#c"
+T = "ad#c"
 
-
-
-
-
-
-
-
-
-
-
-
+def build(S):
+    ans =[]
+    for c in S:
+        if c != '#':
+            ans.append(c)
+        elif ans:
+            ans.pop()
+        return "".join(ans)
+    print(build(S) == build(T))
