@@ -1,20 +1,13 @@
-A = [1,2,2,3]
-flag = 0
-for i in range(0,len(A)-1):
-    if A[i] <= A[i+1]:
-        pass
+S = "a-bC-dEf-ghIj"
+letter = []
+ans = []
+for  i  in range(0,len(S)):
+    if S[i].isalnum():
+        letter.append(S[i])
+for i in S:
+    if i.isalpha():
+        ans.append(letter.pop())
     else:
-        flag = 1
-        break
-flag1=0
-for i in range(0,len(A)-1):
-    if A[i] >= A[i+1]:
-        pass
-    else:
-        flag1 = 1
-        break
-if flag==0 or flag1==0 or (flag==0 and flag==0):
-    print(True)
-else:
-    print(False)
-                
+        ans.append(i)
+
+print ("".join(ans))
