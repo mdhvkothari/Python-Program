@@ -10,8 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
-
-
 def student_views(request,pk):
     stu = Student.objects.get(id=pk)
     serializer = StudentSerializer(stu)
@@ -39,7 +37,7 @@ def student_create(request):
             json_data = JSONRenderer().render(response)
             return HttpResponse(json_data,content_type='application/json')
 
-        json_data = JSONRenderer().render(serializer.error)
+        json_data = JSONRenderer().render(serializer.errors)
         return HttpResponse(json_data,content_type='application/json')
 
 @csrf_exempt
@@ -73,4 +71,21 @@ def student_delete(request):
         stu.delete()
         res = {'msg':'Deleted'}
         json_data = JSONRenderer().render(res)
+        return HttpResponse(json_data,content_type='application/json')
+
+@csrf_exempt
+def student_filed_level_validate(request):
+    if request.method == 'POST':
+        json = request.body
+        stream = io.BytesIO(json)
+        parse_data = JSONParser().parse(stream)
+        serializer = StudentValidation(data = parse_data)
+
+        if serializer.is_valid():
+            serializer.save()
+            response = {'msg':'Data Saved'}
+            json_data = JSONRenderer().render(response)
+            return HttpResponse(json_data,content_type='application/json')
+
+        json_data = JSONRenderer().render(serializer.errors)
         return HttpResponse(json_data,content_type='application/json')

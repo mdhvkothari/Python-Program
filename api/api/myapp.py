@@ -6,17 +6,17 @@ def create():
     URL = "http://127.0.0.1:8000/stucreate/"
 
     data={
-        "name":"Tes",
-        "rollno":10,
+        "name":"model",
+        "rollno":100,
         "city":"Delhi",
     }
 
 
     json_data = json.dumps(data)
 
-    r = requests.post(url = URL,data = json_data)
-    data = r.json()
-    print(data)
+    r = requests.post(url = URL,data = json_data).json()
+    # data = r.json()
+    print(r)
 
 # create()
 
@@ -52,3 +52,21 @@ def delete():
     print(data)
 
 # delete()
+
+def validate_example():
+    URL = "http://127.0.0.1:8000/stuvalidationexample/"
+
+    data={
+        "name":"rohit",
+        "rollno":199,
+        "city":"noida",
+    }
+
+
+    json_data = json.dumps(data)
+    r = requests.post(url = URL,data = json_data).json()
+    # data = r.json()
+
+    print(r)
+
+# validate_example()

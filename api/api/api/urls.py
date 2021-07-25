@@ -25,5 +25,6 @@ urlpatterns = [
     path('stucreate/',views.student_create),
     path('stuupdate/',views.student_update),
     path('studelete/',views.student_delete),
+    path('stuvalidationexample/',views.student_filed_level_validate),
 
 ]
