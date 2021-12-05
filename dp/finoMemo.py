@@ -17,9 +17,8 @@ def finoMemo(n,arr):
     return a
 
 
-arr = []
 num = 10
-for i in range(0,11):
-    arr.append(0)
+arr = [0 for _ in range(0,11)]
+
 
 print(finoMemo(num,arr))
