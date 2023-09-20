@@ -6,6 +6,6 @@ idna==2.8
 psycopg2==2.8.3
 pytz==2019.2
 requests==2.22.0
-sqlparse==0.3.0
+sqlparse==0.4.4
 urllib3==1.26.5
 whitenoise==4.1.4
